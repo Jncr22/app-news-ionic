@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Menú
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content padding>
+  <swiper-container [config]="swiperOptions">
+    <swiper-slide *ngFor="let article of articles">
+      <ion-grid>
+        <ion-row justify-content-center>
+          <ion-col>
+            <ion-card>
+              <img [src]="article.urlToImage" alt="Imagen del artículo">
+              <ion-card-header>
+                <ion-card-title>{{ article.title }}</ion-card-title>
+              </ion-card-header>
+              <ion-button expand="block"  (click)="showArticleDetails(article)">Leer más</ion-button>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </swiper-slide>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </swiper-container>
+</ion-content>
+
